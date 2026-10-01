@@ -10,6 +10,8 @@ See [the project plan](docs/PROJECT_PLAN.md) for deliverables and acceptance cri
 
 See [the architecture diagrams](docs/architecture.md) for the planned request flow, stock transactions, background processing, and delivery pipeline. The document identifies what is implemented today and what is planned.
 
+Chapter 2 design has started with [the product model](docs/product-model.md). It describes proposed fields and rules; product functionality is not implemented yet.
+
 ## Prerequisites
 
 - JDK 21, with `JAVA_HOME` pointing to the JDK directory and Java on `PATH`.
