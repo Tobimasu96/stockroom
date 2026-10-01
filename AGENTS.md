@@ -26,6 +26,7 @@ This is a learning-led Java/Spring Boot inventory and order management portfolio
 
 ## Git, testing, and delivery
 
+- Put all new commits on a short-lived branch and open a PR for gitdoge523 to review. Leave PRs unmerged until the colleague approves them.
 - Encourage a GitHub issue, short-lived branch, focused commits, and a PR with rationale and verification. Do not push, merge, or release unless requested or authorized in the session.
 - Run checks appropriate to each change. Use real PostgreSQL integration tests for transactions, constraints, migrations, and concurrency. Include meaningful failure cases; avoid tests that merely repeat implementation details.
 - Never claim tests passed without running them. Report environmental blockers and provide exact verification steps when checks cannot run.

@@ -4,7 +4,7 @@ A learning-led Java/Spring Boot inventory and order management API for a small r
 
 ## Current stage
 
-Chapter 1: repository and application setup. This starting skeleton contains the application entry point and a context-loading test. Business endpoints, persistence, authentication, and CI will follow in small increments.
+Chapter 1: repository and application setup. This starting skeleton contains the application entry point, a context-loading test, and a GitHub Actions build/test workflow. Business endpoints, persistence, and authentication will follow in small increments.
 
 See [the project plan](docs/PROJECT_PLAN.md) for deliverables and acceptance criteria, and [AGENTS.md](AGENTS.md) for collaboration rules.
 
@@ -62,14 +62,21 @@ If Git requests an identity, configure your name and email for this repository. 
 
 ## Chapter 1 verification still required
 
-- Run `clean verify` from a fresh clone.
-- Add GitHub Actions for pull requests and main; demonstrate a failing test fails CI and its fix passes.
+- Demonstrate that a failing test fails GitHub CI and its fix passes.
 - Configure required checks on main where supported, or document the manual merge rule.
 - Complete the Git branching/conflict/revert practice in the plan.
+
+## Pull requests and CI
+
+Create a short-lived branch for every change, commit there, and open a PR for `gitdoge523`. Leave the PR unmerged until the colleague approves and the `Build and test` check passes. This is the manual merge rule until required reviews and status checks are configured in GitHub.
+
+`.github/workflows/ci.yml` builds with Java 21 and the Maven Wrapper on every PR and push to `main`. Actions are pinned to commit SHAs; the workflow has read-only repository permissions and no deployment secrets. Inspect the Actions log to see compilation, test results, and packaging. See [GitHub's Maven CI guide](https://docs.github.com/en/actions/tutorials/build-and-test-code/java-with-maven).
 
 ## Verification performed
 
 On 1 October 2026, `./mvnw.cmd clean verify` succeeded with Java 21: one context-loading test passed, with no failures or errors, and the executable JAR was built. The packaged application also started on a temporary port and returned the expected 404 for `/`, since no business endpoints exist yet. The smoke-check process was stopped afterward. These checks do not establish fresh-clone or GitHub CI acceptance.
+
+A fresh local Git clone of the initial commit also passed `mvnw.cmd --batch-mode --no-transfer-progress clean verify` on 1 October 2026, with one test and zero failures/errors. This clone used tracked files and the installed JDK/Maven dependency cache; it did not contain the ignored `.tools/` directory. GitHub CI results must be checked separately.
 
 ## First learning exercise
 
