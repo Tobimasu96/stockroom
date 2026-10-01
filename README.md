@@ -62,7 +62,7 @@ If Git requests an identity, configure your name and email for this repository. 
 
 ## Chapter 1 verification still required
 
-- Demonstrate that a failing test fails GitHub CI and its fix passes.
+- Confirm the CI failure-demonstration PR passes after the temporary assertion is removed.
 - Configure required checks on main where supported, or document the manual merge rule.
 - Complete the Git branching/conflict/revert practice in the plan.
 
@@ -77,6 +77,8 @@ Create a short-lived branch for every change, commit there, and open a PR for `g
 On 1 October 2026, `./mvnw.cmd clean verify` succeeded with Java 21: one context-loading test passed, with no failures or errors, and the executable JAR was built. The packaged application also started on a temporary port and returned the expected 404 for `/`, since no business endpoints exist yet. The smoke-check process was stopped afterward. These checks do not establish fresh-clone or GitHub CI acceptance.
 
 A fresh local Git clone of the initial commit also passed `mvnw.cmd --batch-mode --no-transfer-progress clean verify` on 1 October 2026, with one test and zero failures/errors. This clone used tracked files and the installed JDK/Maven dependency cache; it did not contain the ignored `.tools/` directory. GitHub CI results must be checked separately.
+
+PR #1's GitHub `Build and test` check passed. In [PR #2](https://github.com/Tobimasu96/stockroom/pull/2), a temporary JUnit failure caused [CI run 36865085530](https://github.com/Tobimasu96/stockroom/actions/runs/36865085530) to fail as expected. The next commit removes that assertion; its check must pass before merging. This demonstrates that CI detects a test failure rather than merely compiling successfully.
 
 ## First learning exercise
 

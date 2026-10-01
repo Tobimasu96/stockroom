@@ -8,7 +8,6 @@ class StockroomApplicationTests {
 
 	@Test
 	void contextLoads() {
-		org.junit.jupiter.api.Assertions.fail("Intentional Chapter 1 CI failure demonstration; removed in the next commit");
 	}
 
 }
